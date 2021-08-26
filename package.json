@@ -1,0 +1,43 @@
+{
+    "name": "graphql-project-express",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "rescarabel0 <r.escarabelo@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "tsc",
+        "start": "yarn build && babel-node dist/index.js",
+        "start:dev": "yarn build && npx nodemon --watch src --exec babel-node dist/index.js -e ts,gql",
+        "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+        "migration:generate": "yarn build && yarn typeorm migration:generate -n",
+        "migration:run": "yarn build && yarn typeorm migration:run",
+        "git": "git add . && git commit -m ",
+        "postgit": "git push"
+    },
+    "dependencies": {
+        "apollo-server": "^3.2.0",
+        "class-validator": "^0.13.1",
+        "express": "^4.17.1",
+        "graphql": "^15.5.1",
+        "graphql-tools": "^8.1.0",
+        "mysql2": "^2.3.0",
+        "reflect-metadata": "^0.1.13",
+        "rimraf": "^3.0.2",
+        "type-graphql": "^1.1.1",
+        "typeorm": "^0.2.37"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.14.8",
+        "@babel/core": "^7.15.0",
+        "@babel/node": "^7.14.9",
+        "@babel/preset-env": "^7.15.0",
+        "@graphql-tools/load-files": "^6.3.2",
+        "@types/express": "^4.17.13",
+        "@types/node": "^16.7.2",
+        "nodemon": "^2.0.12",
+        "ts-loader": "^9.2.5",
+        "ts-node": "^10.2.1",
+        "typescript": "^4.3.5"
+    }
+}
