@@ -13,7 +13,7 @@
         "migration:generate": "yarn build && yarn typeorm migration:generate -n",
         "migration:run": "yarn build && yarn typeorm migration:run",
         "git": "git add . && git commit -m ",
-        "postgit": "git push"
+        "postgit": "git push -u origin main"
     },
     "dependencies": {
         "apollo-server": "^3.2.0",
